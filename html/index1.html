@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>3DZOO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Duru+Sans|Actor' rel='stylesheet' type='text/css'>
+    
+    <!--Bootshape-->
+    <link href="css/bootshape.css" rel="stylesheet">
+    <style>
+      /* Style pour les boîtes des animaux */
+.animal-box {
+  border: 1px solid #ddecc4; /* Bordure grise */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 15px; /* Espacement intérieur */
+  margin-bottom: 20px; /* Marge en bas */
+  background-color: #ddecc4; /* Couleur d'arrière-plan de la boîte */
+  transition: background-color 0.3s ease; /* Animation de transition */
+}
+.animal-box:hover {
+  background-color: #97b669; /* Couleur d'arrière-plan de la boîte au survol */
+}
+
+.animal-box .caption {
+  text-align: center; /* Centrer le texte */
+}
+
+.animal-box h3 {
+  margin-top: 0; /* Supprimer la marge supérieure du titre */
+}
+
+.animal-box p {
+  margin-bottom: 0; /* Supprimer la marge inférieure du paragraphe */
+  display: none; /* Cacher le texte descriptif par défaut */
+}
+
+.animal-box .read-more-btn {
+  margin-bottom: 10px; /* Espacement du bouton par rapport au texte descriptif */
+  background-color: #293418
+}
+.btn.btn-primary {
+  background-color: #293418; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+}
+
+.btn.btn-primary:hover {
+  background-color: #93cb71; /* Couleur de fond au survol */
+  border-color: #61d55d; /* Couleur de la bordure au survol */
+  color: #fff; /* Couleur du texte au survol */
+}
+/* Style pour la classe more-info */
+.animal-description {
+  font-family: 'EB Garamond', serif; /* Police de caractères */
+  font-size: 13px; /* Taille de la police */
+  line-height: 1.6; /* Hauteur de ligne */
+  color: #333; /* Couleur du texte */
+  margin-top: 10px; /* Marge supérieure */
+}
+
+/* Style pour les paragraphes à l'intérieur de la classe more-info */
+.animal-description p {
+  margin-bottom: 10px; /* Marge inférieure */
+}
+
+ /* Style pour le box */
+ .box {
+    border: 2px solid #448d49; /* Bordure verte */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 15px; /* Espacement intérieur */
+    margin: 15px auto; /* Marge en haut et en bas, centrage horizontal */
+    max-width: 400px; /* Largeur maximale */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    background-color: #bfeba2; /* Couleur d'arrière-plan */
+    background-image: linear-gradient(to right, #97b669, #448d49); /* Dégradé de couleur */
+    transition: transform 0.3s ease; /* Animation de transition */
+  }
+
+  /* Style pour l'image à l'intérieur du box */
+  .box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px; /* Coins arrondis pour l'image */
+    border: 2px solid #448d49; /* Bordure bleue autour de l'image */
+  }
+
+  /* Style pour le texte à côté de l'image */
+  .box .image-text {
+    font-size: 10px; /* Taille de police */
+    color: #333; /* Couleur du texte */
+    line-height: 1.5; /* Hauteur de ligne */
+    margin-top: 10px; /* Marge supérieure */
+  }
+
+  /* Animation lorsque survolé */
+  .box:hover {
+    transform: scale(1.3); /* Légère augmentation de la taille */
+  }
+    </style>
+
+
+
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><span class="green">3D</span> ZOO</a>
+        </div>
+        
+      </div>
+    </div><!-- End Navigation bar -->
+   
+
+    <!-- Slide gallery -->
+    <div class="jumbotron">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="img/carousel1.jpg" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/carousel2.jpg" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/carousel3.jpg" alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div><!-- End Slide gallery -->
+    <h3 class="text-center">Wild Nature Charity</h3>
+    <!-- Thumbnails -->
+<div class="container thumbs">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="animal-box thumbnail">
+        <img src="img/pic1.jpg" alt="" class="img-circle">
+        <div class="caption">
+          <h3 class="text-center">Reptiles</h3>
+          <button class="btn btn-primary read-more-btn">Lire à propos de cette catégorie</button>
+          <p class="animal-description">Les reptiles, ces créatures fascinantes et étonnantes, habitent des environnements variés à travers le monde. Leur peau écailleuse, leur comportement parfois énigmatique et leur adaptation à des conditions extrêmes en font des sujets d'étude captivants pour les scientifiques et les amateurs de la nature. Des serpents venimeux aux lézards colorés en passant par les tortues marines majestueuses, les reptiles jouent un rôle vital dans les écosystèmes et continuent à émerveiller ceux qui prennent le temps de les observer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="animal-box thumbnail">
+        <img src="img/pic2.jpg" alt="" class="img-circle">
+        <div class="caption">
+          <h3 class="text-center">Birds</h3>
+          <button class="btn btn-primary read-more-btn">Lire à propos de cette catégorie</button>
+          <p class="animal-description">Les oiseaux, symboles de liberté et de grâce, peuplent nos cieux avec une diversité étonnante. Leurs chants mélodieux, leurs plumes chatoyantes et leurs capacités de vol exceptionnelles les distinguent parmi les créatures les plus remarquables de la nature. Des majestueux aigles aux petits colibris, chaque espèce apporte sa propre beauté et son importance écologique à notre monde. Les oiseaux nous rappellent la nécessité de préserver les habitats naturels et de protéger la biodiversité pour les générations futures.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="animal-box thumbnail">
+        <img src="img/pic3.jpg" alt="" class="img-circle">
+        <div class="caption">
+          <h3 class="text-center">Animals</h3>
+          <button class="btn btn-primary read-more-btn">Lire à propos de cette catégorie</button>
+          <p class="animal-description">Les animaux, dans leur diversité infinie, peuplent notre planète depuis des millions d'années, apportant émerveillement, inspiration et équilibre aux écosystèmes. Qu'ils soient terrestres, aquatiques ou aériens, ils jouent des rôles essentiels dans la préservation de la vie sur Terre. De la majestueuse éléphante aux agiles dauphins en passant par les lions indomptables, chaque espèce offre un aperçu unique de la complexité et de la beauté de la vie sauvage, nous invitant à les admirer, à les respecter et à les protéger.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- End Thumbnails -->
+<script>
+  // Sélectionner tous les boutons "Lire à propos de cet animal"
+  var readMoreButtons = document.querySelectorAll('.read-more-btn');
+
+  // Ajouter un gestionnaire d'événements 'click' à chaque bouton
+  readMoreButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      // Trouver le paragraphe correspondant au bouton cliqué
+      var description = this.parentNode.querySelector('.animal-description');
+
+      // Vérifier si le texte est actuellement affiché ou caché
+      if (description.style.display === 'block') {
+        // Si le texte est actuellement affiché, le cacher
+        description.style.display = 'none';
+      } else {
+        // Sinon, l'afficher
+        description.style.display = 'block';
+      }
+    });
+  });
+</script>
+
+
+<!-- Content -->
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="animal-box">
+        <h3>CARTE DU ZOO RABAT MAROC</h3>
+        <p>La carte 3D du zoo de Rabat offre une immersion interactive, permettant aux visiteurs d'explorer virtuellement les habitats naturels des animaux et d'en apprendre davantage sur leur comportement, créant ainsi une expérience éducative et divertissante unique.</p>
+        <button id="explore-map-btn" class="btn btn-primary">Explorer la carte</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="animal-box">
+        <h3>MUSEE</h3>
+        <p>Explorez un monde fascinant où les animaux prennent vie en 3D. Plongez dans une aventure immersive au Musée des Animaux</p>
+        <button id="explore-museum-btn" class="btn btn-primary">Explorer le musée</button>
+      </div>
+    </div>
+  </div>
+</div><!-- End Content -->
+
+<!-- Addition -->
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Nouveau box pour l'image et le texte -->
+      <div class="box">
+        <div class="row">
+          <!-- Colonne pour l'image -->
+          <div class="col-md-4">
+            <!-- Insérez votre photo ici avec une largeur spécifiée -->
+            <img src="img/ILYASS EL MANSOUR.jpeg" alt="Ilyass El Mansour" class="img-responsive img-circle" style="max-width: 90px;">
+          </div>
+          <!-- Colonne pour le texte -->
+          <div class="col-md-8">
+            <!-- Texte à côté de la photo -->
+            <h3 >Ilyass El Mansour</h3>
+            <p class="image-text">Élève ingénieur en 3ème année cycle ingénieur à l'Institut Agronomique et Vétérinaire Hassan II</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End addition -->
+
+
+    <!-- Footer -->
+    <div class="footer text-center">
+        <p>&copy; 2024 3DZoo. All Rights Reserved.</p>
+    </div><!-- End Footer -->
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- // <script src="https://code.jquery.com/jquery.js"></script> -->
+    <script src="js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootshape.js"></script>
+  </body>
+</html>

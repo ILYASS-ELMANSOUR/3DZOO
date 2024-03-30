@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3DZOO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+
+  <!--Google Fonts-->
+  <link href='http://fonts.googleapis.com/css?family=Duru+Sans|Actor' rel='stylesheet' type='text/css'>
+
+  <!--Bootshape-->
+  <link href="css/bootshape.css" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+          /* Style pour les boîtes des animaux */
+.animal-box {
+  border: 1px solid #ddecc4; /* Bordure grise */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 15px; /* Espacement intérieur */
+  margin-bottom: 20px; /* Marge en bas */
+  background-color: #ddecc4; /* Couleur d'arrière-plan de la boîte */
+  transition: background-color 0.3s ease; /* Animation de transition */
+}
+.animal-box:hover {
+  background-color: #97b669; /* Couleur d'arrière-plan de la boîte au survol */
+}
+
+.animal-box .caption {
+  text-align: center; /* Centrer le texte */
+}
+
+.animal-box h3 {
+  margin-top: 0; /* Supprimer la marge supérieure du titre */
+}
+
+.animal-box p {
+  margin-bottom: 0; /* Supprimer la marge inférieure du paragraphe */
+  display: none; /* Cacher le texte descriptif par défaut */
+}
+
+.animal-box .read-more-btn {
+  margin-bottom: 10px; /* Espacement du bouton par rapport au texte descriptif */
+  background-color: #293418
+}
+    .custom-icon div {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-size: cover;
+      border: 2px solid rgb(235, 62, 62);
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+
+    .btn.btn-primary {
+  background-color: #293418; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+}
+
+.btn.btn-primary:hover {
+  background-color: #93cb71; /* Couleur de fond au survol */
+  border-color: #61d55d; /* Couleur de la bordure au survol */
+  color: #fff; /* Couleur du texte au survol */
+}
+
+/* Style pour la classe more-info */
+.more-info {
+  font-family: 'EB Garamond', serif; /* Police de caractères */
+  font-size: 13px; /* Taille de la police */
+  line-height: 1.6; /* Hauteur de ligne */
+  color: #333; /* Couleur du texte */
+  margin-top: 10px; /* Marge supérieure */
+}
+
+/* Style pour les paragraphes à l'intérieur de la classe more-info */
+.more-info p {
+  margin-bottom: 10px; /* Marge inférieure */
+}
+
+   
+
+  </style>
+</head>
+<body>
+<!-- Navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span class="green">3D</span> ZOO</a>
+    </div>
+  </div>
+</div><!-- End Navigation bar -->
+
+<!-- Slide gallery -->
+<div class="jumbotron">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="img/carousel1.jpg" alt="">
+        <div class="carousel-caption">
+        </div>
+      </div>
+      <div class="item">
+        <img src="img/carousel2.jpg" alt="">
+        <div class="carousel-caption">
+        </div>
+      </div>
+      <div class="item">
+        <img src="img/carousel3.jpg" alt="">
+        <div class="carousel-caption">
+        </div>
+      </div>
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+</div><!-- End Slide gallery -->
+<h3 class="text-center">liste des animaux </h3>
+
+<!-- Thumbnails -->
+<div class="container thumbs">
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="animal-box thumbnail">
+          <div class="3d-model">
+            <iframe width="100%" height="300px" src="https://sketchfab.com/3d-models/polar-bear-deeb7f4add9f4c36abaacdb73ce3e553/embed" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="caption">
+            <h3 class="text-center">L'ours polaire (Ursus maritimus)</h3>
+            <button class="more-info-btn btn btn-primary">More Info</button>
+            <p class="more-info">L'ours polaire (Ursus maritimus), majestueux habitant des étendues glacées, est l'un des prédateurs les plus emblématiques de l'Arctique. Reconnaissable à son épaisse fourrure blanche qui le camoufle dans son environnement neigeux, cet impressionnant mammifère est parfaitement adapté à la vie dans les conditions extrêmes du Grand Nord.</p>
+            <input type="checkbox" class="animal-checkbox" id="ours polaire" checked> Afficher les emplacements 
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="animal-box thumbnail">
+          <div class="3d-model">
+            <iframe width="100%" height="300px" src="https://sketchfab.com/3d-models/black-panther-7fca11c89cca4362a525c891a8345112/embed" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="caption">
+            <h3 class="text-center">La panthère noire</h3>
+            <button class="more-info-btn btn btn-primary">More Info</button>
+            <p class="more-info">La panthère noire, également connue sous le nom de léopard noir, est une variété de léopard (Panthera pardus) caractérisée par sa couleur de pelage sombre due à une condition génétique appelée mélanisme. Les panthères noires se trouvent principalement en Asie et en Afrique, habitant une variété d'habitats, y compris les forêts tropicales humides, les savanes et les montagnes boisées. Elles sont des prédateurs solitaires et nocturnes, se nourrissant principalement de proies telles que les cerfs, les sangliers et les singes. Leurs coordonnées géographiques peuvent varier en fonction de leur habitat, mais elles sont généralement situées dans des zones forestières denses ou des régions montagneuses recouvertes de végétation.</p>
+            <input type="checkbox" class="animal-checkbox" id="La panthère noire" checked> Afficher les emplacements 
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="animal-box thumbnail">
+          <div class="3d-model">
+            <iframe width="100%" height="300px" src="https://sketchfab.com/3d-models/tiger-0984e2d5f9ef44f7bdc50521be1fa176/embed" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="caption">
+            <h3 class="text-center">Le tigre</h3>
+            <button class="more-info-btn btn btn-primary">More Info</button>
+            <p class="more-info">Le tigre, également connu sous son nom scientifique Panthera tigris, est l'un des grands félins les plus emblématiques du monde. Il est largement reconnu pour sa puissance, sa grâce et sa beauté saisissante. Les tigres sont des prédateurs solitaires et nocturnes, dotés d'une force impressionnante et d'une agilité remarquable. Leur pelage rayé distinctif, qui offre un camouflage efficace dans les hautes herbes et les forêts denses, est l'une de leurs caractéristiques les plus reconnaissables.</p>
+            <input type="checkbox" class="animal-checkbox" id="tiger" checked> Afficher les emplacements 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- End Thumbnails -->
+  
+ 
+            
+            <!-- Carte Leaflet -->
+            <div id="map"></div>
+            
+            <h3 class="text-center">des animaux éteints &amp; animaux imaginaires </h3>
+
+            <!-- Thumbnails des animaux éteints -->
+<div class="container thumbs">
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="animal-box thumbnail">
+          <div class="3d-model">
+            <iframe width="100%" height="300px" src="https://sketchfab.com/3d-models/velociraptor-very-low-poly-71b76520ebff41e4b760746586e5ab58/embed" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="caption">
+            <h3 class="text-center">Velociraptor</h3>
+            <button class="more-info-btn btn btn-primary">More Info</button>
+            <p class="more-info">Le Velociraptor était un dinosaure carnivore de petite à moyenne taille qui vivait il y a environ 75 à 71 millions d'années, pendant la période du Crétacé supérieur. Il faisait partie des théropodes, un groupe de dinosaures bipèdes caractérisés par leur démarche prédatrice et leurs mâchoires remplies de dents acérées.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="animal-box thumbnail">
+          <div class="3d-model">
+            <iframe width="100%" height="300px" src="https://sketchfab.com/3d-models/fire-dragon-cf745691e2734c94b7f416232c3d6955/embed" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="caption">
+            <h3 class="text-center">fire dragon</h3>
+            <button class="more-info-btn btn btn-primary">More Info</button>
+            <p class="more-info">Le dragon de feu, souvent décrit dans les mythologies à travers le monde, est une créature reptilienne mythique associée au feu et à la destruction. Il est généralement représenté comme un grand serpent ou reptile ailé, possédant des écailles résistantes au feu et crachant des flammes de sa gueule.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="animal-box thumbnail">
+          <div class="3d-model">
+            <iframe width="100%" height="300px" src="https://sketchfab.com/3d-models/protoceratops-2bdbfaab97d540edaf1ffd820398cfbf/embed" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="caption">
+            <h3 class="text-center">Protoceratops</h3>
+            <button class="more-info-btn btn btn-primary">More Info</button>
+            <p class="more-info">Le Protoceratops était un dinosaure herbivore qui vivait il y a environ 75 à 71 millions d'années, pendant le Crétacé supérieur, dans ce qui est aujourd'hui l'Asie centrale. Voici une description générale de cette espèce :
+  
+            Le Protoceratops était un dinosaure ornithischien de taille moyenne, mesurant environ 1,8 à 2 mètres de longueur et pesant jusqu'à quelques centaines de kilogrammes. Il possédait une tête relativement large avec un bec corné, adapté à se nourrir de végétaux, et une collerette osseuse distinctive qui s'étendait derrière sa tête. Cette collerette, bien que plus petite que celle des Triceratops, était probablement utilisée à des fins de régulation thermique ou pour la protection contre les prédateurs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- End Thumbnails -->
+  
+            <!-- Leaflet et JavaScript pour la carte -->
+            <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+            <script>
+              // Initialisation de la carte Leaflet
+              var map = L.map('map').setView([0, 0], 1); // Centre de la carte initial et zoom
+            
+              // Ajout du fond de carte Mapbox
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+  attribution: "By ",
+  maxZoom: 20,
+  id: 'mapbox/streets-v11',
+  tileSize: 512,
+  zoomOffset: -1,
+  accessToken: 'pk.eyJ1IjoiZHJpc3NkcmRveGkiLCJhIjoiY2xhbGVudjByMDFpeTN2a2R1N3o4ejFieCJ9.fScK3YiEEJcw0Dyuoscnew'
+}).addTo(map);
+
+
+            
+              var polarBearIcon = L.divIcon({
+                className: 'custom-icon', // Une classe personnalisée pour appliquer des styles
+                html: '<div style="background-image: url(data/ours-polaires.jpg);"></div>', // Mettez l'image en arrière-plan du div
+                iconSize: [50, 50], // Taille de l'icône
+                iconAnchor: [25, 50], // Point de l'icône qui correspondra géographiquement à la coordonnée du marqueur
+                popupAnchor: [0, -50] // Point à partir duquel la popup s'ouvrira par rapport à l'iconAnchor
+              });
+              var panthereNoireIcon = L.divIcon({
+                className: 'custom-icon', // Une classe personnalisée pour appliquer des styles
+                html: '<div style="background-image: url(data/Lapanthèrenoire.jpeg);"></div>', // Mettez l'image en arrière-plan du div
+                iconSize: [50, 50], // Taille de l'icône
+                iconAnchor: [25, 50], // Point de l'icône qui correspondra géographiquement à la coordonnée du marqueur
+                popupAnchor: [0, -50] // Point à partir duquel la popup s'ouvrira par rapport à l'iconAnchor
+              });
+              var TigerIcon = L.divIcon({
+                className: 'custom-icon', // Une classe personnalisée pour appliquer des styles
+                html: '<div style="background-image: url(data/Tiger.jpg);"></div>', // Mettez l'image en arrière-plan du div
+                iconSize: [50, 50], // Taille de l'icône
+                iconAnchor: [25, 50], // Point de l'icône qui correspondra géographiquement à la coordonnée du marqueur
+                popupAnchor: [0, -50] // Point à partir duquel la popup s'ouvrira par rapport à l'iconAnchor
+              });
+            
+              // Fonction pour ajouter les marqueurs sur la carte
+              function addMarkers(animal) {
+                // Ajouter des marqueurs spécifiques en fonction de l'animal sélectionné
+                if (animal === 'ours polaire') {
+                  L.marker([62.393252, -96.818146], {icon: polarBearIcon}).addTo(map).bindPopup("Canada");
+                  L.marker([71.000000, 102.000000], {icon: polarBearIcon}).addTo(map).bindPopup("Russie (Sibérie)");
+                  L.marker([78.223172, 15.626723], {icon: polarBearIcon}).addTo(map).bindPopup("Norvège (Svalbard)");
+                  L.marker([71.706936, -42.604303], {icon: polarBearIcon}).addTo(map).bindPopup("Groenland");
+                  L.marker([64.200841, -149.493673], {icon: polarBearIcon}).addTo(map).bindPopup("États-Unis (Alaska)");
+                } else if (animal === 'La panthère noire') {
+                  L.marker([3.4168, -65.8561], {icon: panthereNoireIcon}).addTo(map).bindPopup("Brésil (forêt amazonienne)");
+                  L.marker([20.5937, 78.9629], {icon: panthereNoireIcon}).addTo(map).bindPopup("Inde (régions forestières)");
+                  L.marker([4.2105, 101.9758], {icon: panthereNoireIcon}).addTo(map).bindPopup("Malaisie (forêts tropicales)");
+                  L.marker([15.8700, 100.9925], {icon: panthereNoireIcon}).addTo(map).bindPopup("Thaïlande (zones forestières du nord)");
+                  L.marker([-30.5595, 22.9375], {icon: panthereNoireIcon}).addTo(map).bindPopup("Afrique du Sud (parcs nationaux et réserves)");
+                } else if (animal === 'tiger') {
+                  L.marker([20.5937, 81], {icon: TigerIcon}).addTo(map).bindPopup("Inde (régions forestières)");
+                  L.marker([28.3949, 84.1240], {icon: TigerIcon}).addTo(map).bindPopup("Népal (parcs nationaux et réserves)");
+                  L.marker([23.6850, 90.3563], {icon: TigerIcon}).addTo(map).bindPopup("Bangladesh (forêts tropicales)");
+                  L.marker([61.5240, 105.3188], {icon: TigerIcon}).addTo(map).bindPopup("Russie (régions de l'Extrême-Orient)");
+                  L.marker([-0.7893, 113.9213], {icon: TigerIcon}).addTo(map).bindPopup("Indonésie (île de Sumatra)");
+                }
+              }
+            
+              // Fonction pour gérer l'affichage des marqueurs en fonction des cases cochées
+              function updateMarkers() {
+                // Supprimer tous les marqueurs existants
+                map.eachLayer(function (layer) {
+                  if (layer instanceof L.Marker) {
+                    map.removeLayer(layer);
+                  }
+                });
+            
+                // Vérifier chaque case à cocher et ajouter les marqueurs appropriés si elle est cochée
+                checkboxes.forEach(function(checkbox) {
+                  if (checkbox.checked) {
+                    // Utiliser la fonction addMarkers pour ajouter des marqueurs en fonction de l'id de la case cochée
+                    addMarkers(checkbox.id);
+                  }
+                });
+              }
+            
+              // Sélectionner toutes les cases à cocher
+              var checkboxes = document.querySelectorAll('.animal-checkbox');
+            
+              // Ajouter un gestionnaire d'événements 'change' à chaque case à cocher
+              checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('change',
+                updateMarkers);
+          });
+        
+          // Initialisation de la carte avec tous les marqueurs désactivés
+          updateMarkers();
+
+          // Gestionnaire d'événements pour le bouton "More Info"
+          var moreInfoBtns = document.querySelectorAll('.more-info-btn');
+          moreInfoBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              var moreInfo = this.parentNode.querySelector('.more-info');
+              if (moreInfo.style.display === 'none') {
+                moreInfo.style.display = 'block';
+                this.textContent = 'Less Info';
+              } else {
+                moreInfo.style.display = 'none';
+                this.textContent = 'More Info';
+              }
+            });
+          });
+        </script>
+        <!-- Footer -->
+        <div class="footer text-center">
+          <p>&copy; 2024 3DZoo All Rights Reserved.</p>
+        </div><!-- End Footer -->
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootshape.js"></script>
+        </body>
+        </html>
+    

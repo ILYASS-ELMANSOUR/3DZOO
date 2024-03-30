@@ -1,0 +1,384 @@
+/* img{
+  border-radius: 20%;
+} */
+body {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
+iframe {
+  position: fixed;
+  top: 100px;
+  left: 10;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 999999;
+}
+.mapboxgl-popup-content {
+  border-radius: 10px;
+  /* border-color: #ede1cc; */
+  /* border: #000;
+  border-style: solid;
+  border-width: 2px; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.my-custom-control {
+  color: #f00;
+  background: #000;
+  padding: 8px;
+  border-radius: 4px;
+  margin: 8px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  place-items: center start;
+  background: linear-gradient(315deg, #ffffff, #d7e1ec);
+}
+
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #ffffff;
+  border-radius: 60%;
+  padding: 15px;
+  margin: 5px;
+  width: 10;
+  height: 10px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* .wrapper .VillVisi:hover,
+.wrapper .VillVisi:hover .tooltip,
+.wrapper .VillVisi:hover .tooltip::before {
+  background: #1877f2;
+  color: #ffffff;
+}
+
+.wrapper .FerPeda:hover,
+.wrapper .FerPeda:hover .tooltip,
+.wrapper .FerPeda:hover .tooltip::before {
+  background: #1877f2;
+  color: #ffffff;
+}
+
+.wrapper .MonAtlas:hover,
+.wrapper .MonAtlas:hover .tooltip,
+.wrapper .MonAtlas:hover .tooltip::before {
+  background: #1da1f2;
+  color: #ffffff;
+}
+
+.wrapper .Des:hover,
+.wrapper .Des:hover .tooltip,
+.wrapper .Des:hover .tooltip::before {
+  background: #e4405f;
+  color: #ffffff;
+}
+
+.wrapper .SavAfri:hover,
+.wrapper .SavAfri:hover .tooltip,
+.wrapper .SavAfri:hover .tooltip::before {
+  background: #333333;
+  color: #ffffff;
+}
+
+.wrapper .Mare:hover,
+.wrapper .Mare:hover .tooltip,
+.wrapper .Mare:hover .tooltip::before {
+  background: #cd201f;
+  color: #ffffff;
+}
+
+.wrapper .frotro:hover,
+.wrapper .frotro:hover .tooltip,
+.wrapper .frotro:hover .tooltip::before {
+  background: #11971a;
+  color: #ffffff;
+} */
+
+
+main h1 {
+  font-weight: 900;
+  font-size: 2.7rem;
+  max-width: 20ch;
+}
+
+main p {
+  max-width: 60ch;
+}
+
+main a {
+  color: currentcolor;
+}
+
+/* Utilities */
+main .auto-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--auto-grid-min-size, 14rem), 1fr)
+  );
+  grid-gap: var(--auto-grid-gap, 0);
+  padding: 0;
+}
+
+main .flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+/* Composition */
+main .team {
+  --flow-space: 2em;
+}
+
+/* Blocks */
+main .profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 1/1;
+  position: relative;
+  padding: 1.5rem;
+  color: #ffffff;
+  backface-visibility: hidden;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+main .profile::before,
+main .profile::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /*inset: 0;*/
+  top: 0;
+  left: 0;
+}
+
+main .profile::before {
+  background: linear-gradient(
+    to top,
+    hsl(0 0% 0% / 0.79) 0%,
+    hsl(0 0% 0% / 0.787) 7.8%,
+    hsl(0 0% 0% / 0.779) 14.4%,
+    hsl(0 0% 0% / 0.765) 20.2%,
+    hsl(0 0% 0% / 0.744) 25.3%,
+    hsl(0 0% 0% / 0.717) 29.9%,
+    hsl(0 0% 0% / 0.683) 34.3%,
+    hsl(0 0% 0% / 0.641) 38.7%,
+    hsl(0 0% 0% / 0.592) 43.3%,
+    hsl(0 0% 0% / 0.534) 48.4%,
+    hsl(0 0% 0% / 0.468) 54.1%,
+    hsl(0 0% 0% / 0.393) 60.6%,
+    hsl(0 0% 0% / 0.31) 68.3%,
+    hsl(0 0% 0% / 0.216) 77.3%,
+    hsl(0 0% 0% / 0.113) 87.7%,
+    hsl(0 0% 0% / 0) 100%
+  );
+  transition: 300ms opacity linear;
+}
+
+main .profile::after {
+  background: linear-gradient(
+    45deg,
+    hsl(5 97% 63% / 0.7) 0,
+    hsl(5 97% 63% / 0) 100%
+  );
+  opacity: 0;
+  transition: 300ms opacity linear;
+}
+
+main .profile > * {
+  z-index: 1;
+}
+
+main .profile img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: -1;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: filter 200ms ease, transform 250ms linear;
+}
+
+main .profile h2,
+main .profile p {
+  transform: translateY(2ex);
+}
+
+main .profile h2 {
+  font-size: 1.7rem;
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: 0.03ch;
+  transition: 300ms transform ease;
+}
+
+main .profile p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+main .profile p {
+  opacity: 0;
+  transition: 300ms opacity linear, 300ms transform ease-in-out;
+}
+
+main .profile:focus {
+  outline: 0.5rem solid white;
+  outline-offset: -0.5rem;
+}
+
+main .profile:hover :is(h2, p),
+main .profile:focus :is(h2, p) {
+  transform: none;
+}
+
+main .profile:hover::after,
+main .profile:focus::after,
+main .profile:hover::before,
+main .profile:focus::before {
+  opacity: 0.7;
+}
+
+main .profile:hover p,
+main .profile:focus p {
+  opacity: 1;
+  transition-delay: 200ms;
+}
+
+main .profile:hover img,
+main .profile:focus img {
+  filter: grayscale(0);
+  transform: scale(1.05) rotate(1deg);
+}
+
+.mapboxgl-popup-content{
+  padding: 0;
+}
+
+.mapboxgl-popup-content h2{
+  margin: 0.6rem 0 0.25rem 0;
+  font: "Open Sans", sans-serif;
+  color: #38837b;
+}
+
+.close {
+  position: absolute;
+  left: 7px;
+  top: 16px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+}
+
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 16px;
+  width: 2px;
+  background-color: #38837b;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
